@@ -1,0 +1,277 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|c:\\users\\data comp\\desktop\\lapshop\\lapshop\\lapshop\\areas\\admin\\views\\categories\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|solutionrelative:lapshop\\areas\\admin\\views\\categories\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|c:\\users\\data comp\\desktop\\lapshop\\lapshop\\lapshop\\areas\\admin\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|solutionrelative:lapshop\\areas\\admin\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|c:\\users\\data comp\\desktop\\lapshop\\lapshop\\lapshop\\bl\\clscategories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|solutionrelative:lapshop\\bl\\clscategories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|c:\\users\\data comp\\desktop\\lapshop\\lapshop\\lapshop\\areas\\admin\\views\\categories\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|solutionrelative:lapshop\\areas\\admin\\views\\categories\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|c:\\users\\data comp\\desktop\\lapshop\\lapshop\\lapshop\\models\\tbcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|solutionrelative:lapshop\\models\\tbcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|c:\\users\\data comp\\desktop\\lapshop\\lapshop\\lapshop\\recourses\\resadmin.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|solutionrelative:lapshop\\recourses\\resadmin.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|c:\\users\\data comp\\desktop\\lapshop\\lapshop\\lapshop\\recourses\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|solutionrelative:lapshop\\recourses\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|c:\\users\\data comp\\desktop\\lapshop\\lapshop\\lapshop\\recourses\\resgeneral.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|solutionrelative:lapshop\\recourses\\resgeneral.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|c:\\users\\data comp\\desktop\\lapshop\\lapshop\\lapshop\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|solutionrelative:lapshop\\areas\\admin\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|c:\\users\\data comp\\desktop\\lapshop\\lapshop\\lapshop\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|solutionrelative:lapshop\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Models\\LapShopContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:LapShop\\Models\\LapShopContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|c:\\users\\data comp\\desktop\\lapshop\\lapshop\\lapshop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|solutionrelative:lapshop\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|c:\\users\\data comp\\desktop\\lapshop\\lapshop\\lapshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|solutionrelative:lapshop\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|c:\\users\\data comp\\desktop\\lapshop\\lapshop\\lapshop\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BC739E84-0803-40B3-AFF7-01122C288D58}|LapShop\\LapShop.csproj|solutionrelative:lapshop\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Migrations\\20250427024158_firstMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:LapShop\\Migrations\\20250427024158_firstMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ClsCategories.cs",
+              "DocumentMoniker": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Bl\\ClsCategories.cs",
+              "RelativeDocumentMoniker": "LapShop\\Bl\\ClsCategories.cs",
+              "ToolTip": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Bl\\ClsCategories.cs",
+              "RelativeToolTip": "LapShop\\Bl\\ClsCategories.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-27T11:44:25.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Areas\\admin\\Views\\Categories\\Edit.cshtml",
+              "RelativeDocumentMoniker": "LapShop\\Areas\\admin\\Views\\Categories\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Areas\\admin\\Views\\Categories\\Edit.cshtml",
+              "RelativeToolTip": "LapShop\\Areas\\admin\\Views\\Categories\\Edit.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAADUAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-27T11:32:32.725Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "List.cshtml",
+              "DocumentMoniker": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Areas\\admin\\Views\\Categories\\List.cshtml",
+              "RelativeDocumentMoniker": "LapShop\\Areas\\admin\\Views\\Categories\\List.cshtml",
+              "ToolTip": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Areas\\admin\\Views\\Categories\\List.cshtml",
+              "RelativeToolTip": "LapShop\\Areas\\admin\\Views\\Categories\\List.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACQAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-27T07:10:51.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CategoriesController.cs",
+              "DocumentMoniker": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Areas\\admin\\Controllers\\CategoriesController.cs",
+              "RelativeDocumentMoniker": "LapShop\\Areas\\admin\\Controllers\\CategoriesController.cs",
+              "ToolTip": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Areas\\admin\\Controllers\\CategoriesController.cs",
+              "RelativeToolTip": "LapShop\\Areas\\admin\\Controllers\\CategoriesController.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAjwDEAAABuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-27T07:09:50.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ResAdmin.resx",
+              "DocumentMoniker": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Recourses\\ResAdmin.resx",
+              "RelativeDocumentMoniker": "LapShop\\Recourses\\ResAdmin.resx",
+              "ToolTip": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Recourses\\ResAdmin.resx",
+              "RelativeToolTip": "LapShop\\Recourses\\ResAdmin.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-04-27T10:09:11.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TbCategory.cs",
+              "DocumentMoniker": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Models\\TbCategory.cs",
+              "RelativeDocumentMoniker": "LapShop\\Models\\TbCategory.cs",
+              "ToolTip": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Models\\TbCategory.cs",
+              "RelativeToolTip": "LapShop\\Models\\TbCategory.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAuwAkAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-27T10:30:55.564Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ResGeneral.resx",
+              "DocumentMoniker": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Recourses\\ResGeneral.resx",
+              "RelativeDocumentMoniker": "LapShop\\Recourses\\ResGeneral.resx",
+              "ToolTip": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Recourses\\ResGeneral.resx",
+              "RelativeToolTip": "LapShop\\Recourses\\ResGeneral.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-04-27T10:03:40.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Class.cs",
+              "DocumentMoniker": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Recourses\\Class.cs",
+              "RelativeDocumentMoniker": "LapShop\\Recourses\\Class.cs",
+              "ToolTip": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Recourses\\Class.cs",
+              "RelativeToolTip": "LapShop\\Recourses\\Class.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-27T10:14:42.114Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Areas\\admin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "LapShop\\Areas\\admin\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Areas\\admin\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "LapShop\\Areas\\admin\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAACABAAAAAAAAAAAAALwAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-27T08:34:08.549Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Program.cs",
+              "RelativeDocumentMoniker": "LapShop\\Program.cs",
+              "ToolTip": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Program.cs",
+              "RelativeToolTip": "LapShop\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAYwBIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-27T03:05:33.954Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LapShopContext.cs",
+              "DocumentMoniker": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Models\\LapShopContext.cs",
+              "RelativeDocumentMoniker": "LapShop\\Models\\LapShopContext.cs",
+              "ToolTip": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Models\\LapShopContext.cs",
+              "RelativeToolTip": "LapShop\\Models\\LapShopContext.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAD4vzkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-27T02:27:34.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "LapShop\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "LapShop\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-26T06:19:31.913Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "LapShop\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "LapShop\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-26T06:18:52.665Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "20250427024158_firstMigration.cs",
+              "DocumentMoniker": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Migrations\\20250427024158_firstMigration.cs",
+              "RelativeDocumentMoniker": "LapShop\\Migrations\\20250427024158_firstMigration.cs",
+              "ToolTip": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Migrations\\20250427024158_firstMigration.cs",
+              "RelativeToolTip": "LapShop\\Migrations\\20250427024158_firstMigration.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-27T02:41:58.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "LapShop\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Data comp\\Desktop\\LapShop\\LapShop\\LapShop\\Properties\\launchSettings.json",
+              "RelativeToolTip": "LapShop\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-27T03:06:33.663Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+﻿@model List<LapShop.Models.TbCategory>
+
+    <ul>
+
+
+@foreach(var cat in Model)
+{
+    <li>
+        @cat.CategoryName
+    </li>
+
+}
+</ul>
