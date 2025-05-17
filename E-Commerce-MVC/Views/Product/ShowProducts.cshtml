@@ -1,0 +1,195 @@
+﻿@model IEnumerable<BusinessLayer.DTO.Product.ProductCardDTO>
+@{
+    ViewData["Title"] = "See All Products";
+}
+
+<style>
+    /* Page Title */
+    .page-title {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #333;
+        text-align: center;
+    }
+
+    /* Product Grid */
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+        padding: 20px;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .product-card {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        height: 550px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        justify-content: space-between;
+    }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+    .product-link {
+        text-decoration: none;
+        color: inherit;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .product-link:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .product-image {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+        border-bottom: 1px solid #eee;
+        padding: 1rem;
+        background-color: #f8f9fa;
+    }
+
+    .product-info {
+        padding: 15px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .product-name {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        min-height: 66px;
+    }
+
+    .product-description {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 0;
+        height: 60px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+
+    .product-price {
+        font-size: 20px;
+        font-weight: bold;
+        color: #007bff;
+        margin-bottom: 15px;
+    }
+
+    .product-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0 0 24px 0;
+    }
+
+    .btn-add-to-cart {
+        background: #000;
+        color: #fff;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 28px;
+        font-size: 18px;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        cursor: pointer;
+        min-width: 180px;
+    }
+    .btn-add-to-cart:hover {
+        background: #ffd700;
+        color: #000;
+    }
+
+    .btn-details {
+        background: #000;
+        color: #fff;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 28px;
+        font-size: 18px;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        cursor: pointer;
+        min-width: 180px;
+    }
+    .btn-details:hover {
+        background: #ffd700;
+        color: #000;
+    }
+</style>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<h1 class="page-title">All Products</h1>
+
+<div class="product-grid">
+    @foreach (var item in Model)
+    {
+        <div class="product-card">
+            <a asp-action="Details" asp-route-id="@item.Id" class="product-link">
+                <img src="/Images/Product/@item.ImagePath" alt="@item.Name" class="product-image" />
+                <div class="product-info">
+                    <div class="product-name">@Html.DisplayFor(modelItem => item.Name)</div>
+                    <div class="product-description">@Html.DisplayFor(modelItem => item.Description)</div>
+                    <div class="product-price">@Html.DisplayFor(modelItem => item.Price) EGP</div>
+                </div>
+            </a>
+            <div class="product-actions">
+                <a asp-action="AddToCart" asp-controller="Cart" asp-route-productId="@item.Id" class="btn-add-to-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    Add to cart
+                </a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn-details">
+                    <i class="fas fa-info-circle"></i>
+                    View Details
+                </a>
+            </div>
+        </div>
+    }
+</div>
+
+<br />
+<br />
+<br />
+<br />

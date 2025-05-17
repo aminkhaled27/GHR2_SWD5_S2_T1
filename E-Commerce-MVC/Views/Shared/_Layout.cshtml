@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - E_Commerce_MVC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/E_Commerce_MVC.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <style>
+        .navbar {
+            padding: 0;
+        }
+        .navbar > .container-fluid {
+            max-width: 100%;
+            padding: 0 2rem;
+        }
+        .navbar-collapse {
+            flex-grow: 1;
+        }
+        .navbar-nav {
+            width: 100%;
+        }
+        .navbar-nav.flex-grow-1 {
+            justify-content: center;
+        }
+        .navbar-nav:last-child {
+            justify-content: flex-end;
+        }
+        .dropdown-menu {
+            min-width: 200px;
+        }
+        .dropdown-item {
+            padding: 0.5rem 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+            padding-left: 2rem;
+        }
+        .cart-btn {
+            border-radius: 50px;
+            background: #fff;
+            color: #000;
+            border: 2px solid #000;
+            padding: 8px 20px;
+            font-weight: 600;
+            transition: background 0.2s, color 0.2s, border 0.2s;
+            position: relative;
+        }
+        .cart-btn:hover, .cart-btn:focus {
+            background: #ffd700;
+            color: #000;
+            border-color: #ffd700;
+            text-decoration: none;
+        }
+        .cart-icon {
+            color: #000;
+            font-size: 1.2rem;
+            transition: color 0.2s;
+        }
+        .cart-btn:hover .cart-icon, .cart-btn:focus .cart-icon {
+            color: #000;
+        }
+        .cart-count {
+            font-size: 0.8rem;
+            min-width: 22px;
+            min-height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            right: 0;
+            transform: translate(50%, -50%);
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow w-100 d-flex justify-content-between align-items-center">
+            <a class="navbar-brand d-flex align-items-center" asp-area="" asp-controller="Home" asp-action="Index" style="margin-left:50px;">
+                <img src="~/Images/logo.png" alt="Logo" style="height:40px; margin-right:10px;" />
+                <span style="font-size:2rem; font-weight:700; letter-spacing:1px; color:#222; font-family:'Montserrat',sans-serif;">HOT<br />GADGETS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end navbar-item">
+                <ul class="navbar-nav" style="margin-right:0;">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @{
+                                var allCategories = ViewBag.AllCategories as List<BusinessLayer.DTO.Category.CategoryWithProductDTO>;
+                                if (allCategories != null)
+                                {
+                                    foreach (var category in allCategories.OrderBy(c => c.CategoryName))
+                                    {
+                                        <li>
+                                            <a class="dropdown-item" asp-controller="Product" asp-action="GetProductByCategoryName" asp-route-CategoryName="@category.CategoryName">
+                                                @category.CategoryName
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Dashboard">Admin Dashboard</a>
+                        </li>
+                    }
+                    <li class="nav-item">
+                        <a class="btn cart-btn position-relative d-flex align-items-center" asp-area="" asp-controller="Cart" asp-action="ShowCart">
+                            <i class="fas fa-shopping-cart cart-icon"></i>
+                            <span class="ms-2">Cart</span>
+                            <span class="cart-count badge rounded-pill position-absolute top-0 start-100 translate-middle" style="background: #ffd700; color: #000;">
+                                @(ViewBag.CartCount != null ? ViewBag.CartCount : 0)
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show position-fixed bottom-0 start-50 translate-middle-x mb-3" role="alert" style="z-index: 1055;">
+            @TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    @if (TempData["Danger"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show position-fixed bottom-0 start-50 translate-middle-x mb-3" role="alert" style="z-index: 1055;">
+            @TempData["Danger"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - E_Commerce_MVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,136 @@
+﻿@{
+    Layout = "~/Views/Shared/_AuthLayout.cshtml";
+}
+
+@using E_Commerce_MVC.ViewModels
+@model RegisterVM
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <div class="register-container">
+        <h2>Register</h2>
+
+        <form asp-action="SaveRegister" asp-controller="Account" method="post" class="register-form">
+            <div class="input-group">
+                <label asp-for="UserName">Username</label>
+                <input asp-for="UserName" class="form-control" placeholder="Enter your username">
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+
+            <div class="input-group">
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" class="form-control" placeholder="Enter your email">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="input-group">
+                <label asp-for="Password">Password</label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Enter your password">
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="input-group">
+                <label asp-for="ConfirmPassword">Confirm Password</label>
+                <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Confirm your password">
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="register-button">Register</button>
+        </form>
+    </div>
+
+    <style>
+        .register-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+            .register-container h2 {
+                text-align: center;
+                margin-bottom: 1.5rem;
+                color: #333;
+                font-size: 1.8rem;
+            }
+
+        .register-form .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+            .register-form .input-group label {
+                display: block;
+                margin-bottom: 0.5rem;
+                color: #555;
+                font-weight: 500;
+            }
+
+            .register-form .input-group input,
+            .register-form .input-group textarea {
+                width: 100%;
+                padding: 0.75rem;
+                border: 1px solid #ddd;
+                border-radius: 6px;
+                font-size: 1rem;
+                color: #333;
+                transition: border-color 0.3s ease;
+            }
+
+                .register-form .input-group input:focus,
+                .register-form .input-group textarea:focus {
+                    border-color: #007bff;
+                    outline: none;
+                }
+
+            .register-form .input-group textarea {
+                resize: vertical;
+            }
+
+        .register-form .text-danger {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .register-button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .register-button:hover {
+                background-color: #0056b3;
+            }
+    </style>
+   
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</body>
+</html>
