@@ -1,0 +1,128 @@
+﻿@model E_Commerce_MVC.ViewModels.LoginVM
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_AuthLayout";
+}
+
+<div class="container py-5 mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header bg-dark text-white text-center py-4">
+                    <h3 class="mb-0">Welcome Back!</h3>
+                    <p class="mb-0">Please login to your account</p>
+                </div>
+                <div class="card-body p-4">
+                    <div class="text-center mb-4">
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-dark">
+                            <i class="fas fa-home"></i> Back to Home
+                        </a>
+                    </div>
+
+                    <form asp-action="SaveLogin" method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="Email" class="form-control" placeholder="name@example.com" />
+                            <label asp-for="Email">Email address</label>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="Password" class="form-control" placeholder="Password" />
+                            <label asp-for="Password">Password</label>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-check mb-3">
+                            <input asp-for="RememberMe" class="form-check-input" />
+                            <label asp-for="RememberMe" class="form-check-label">Remember me</label>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-dark btn-lg">
+                                <i class="fas fa-sign-in-alt"></i> Login
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center py-3">
+                    <div class="small">
+                        Don't have an account? 
+                        <a asp-action="Register" class="text-dark">Register here!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        transition: transform 0.2s;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .form-floating > .form-control {
+        padding: 1rem 0.75rem;
+    }
+
+    .form-floating > label {
+        padding: 1rem 0.75rem;
+    }
+
+    .btn-dark {
+        background-color: #000;
+        border-color: #000;
+        transition: all 0.3s ease;
+    }
+
+    .btn-dark:hover {
+        background-color: #ffd700;
+        border-color: #ffd700;
+        color: #000;
+        transform: translateY(-2px);
+    }
+
+    .btn-outline-dark {
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline-dark:hover {
+        background-color: #ffd700;
+        border-color: #ffd700;
+        color: #000;
+        transform: translateY(-2px);
+    }
+
+    .card-header {
+        background: linear-gradient(45deg, #000, #333);
+    }
+
+    .form-control:focus {
+        border-color: #ffd700;
+        box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25);
+    }
+
+    .alert-danger {
+        background-color: #f8d7da;
+        border-color: #f5c2c7;
+        color: #842029;
+    }
+
+    .text-dark {
+        color: #000 !important;
+    }
+
+    .text-dark:hover {
+        color: #ffd700 !important;
+    }
+</style>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

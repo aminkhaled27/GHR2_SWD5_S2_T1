@@ -1,0 +1,294 @@
+@model List<BusinessLayer.DTO.Product.ProductCardDTO>
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    var categories = ViewBag.Categories as List<BusinessLayer.DTO.Category.CategoryDTO>;
+    var selectedCategoryId = ViewBag.SelectedCategoryId as int?;
+}
+
+<div class="container-fluid" style="margin-top: 100px; padding-top: 20px;">
+    <div class="row">
+        <!-- Products Section -->
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Products</h5>
+                    <a asp-action="AddProduct" asp-controller="Admin" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add New Product
+                    </a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Category</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var product in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            <img src="/Images/Product/@product.ImagePath" alt="@product.Name" style="width: 50px; height: 50px; object-fit: cover;" />
+                                        </td>
+                                        <td>@product.Name</td>
+                                        <td>@product.Price.ToString("F2") EGP</td>
+                                        <td>@product.CategoryName</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a asp-action="Edit" asp-controller="Product" asp-route-id="@product.Id" class="btn btn-warning btn-sm">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <button onclick="confirmDelete(@product.Id)" class="btn btn-danger btn-sm">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories Section -->
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Categories</h5>
+                    <a asp-action="AddCategory" asp-controller="Admin" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Category
+                    </a>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        @foreach (var category in ViewBag.Categories)
+                        {
+                            <div class="col-md-6 mb-3">
+                                <div class="card category-card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">@category.Name</h6>
+                                        <p class="card-text text-muted">@category.Products.Count Products</p>
+                                        <div class="btn-group">
+                                            <button onclick="confirmDeleteCategory(@category.Id, '@category.Name')" class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Users Section -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Registered Users</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Phone Number</th>
+                                    <th>Roles</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var user in ViewBag.Users)
+                                {
+                                    <tr>
+                                        <td>@user.UserName</td>
+                                        <td>@user.Email</td>
+                                        <td>@(user.PhoneNumber ?? "Not set")</td>
+                                        <td>
+                                            @{
+                                                var userRoles = ViewBag.UserRoles[user.Id] as List<string>;
+                                                foreach (var role in userRoles)
+                                                {
+                                                    <span class="badge bg-primary me-1">@role</span>
+                                                }
+                                            }
+                                        </td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="roleDropdown@(user.Id)" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Manage Roles
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="roleDropdown@(user.Id)">
+                                                    <li>
+                                                        <form asp-action="ToggleUserRole" method="post" class="d-inline">
+                                                            <input type="hidden" name="userId" value="@user.Id" />
+                                                            <input type="hidden" name="role" value="Admin" />
+                                                            <button type="submit" class="dropdown-item">
+                                                                @(userRoles.Contains("Admin") ? "Remove Admin" : "Make Admin")
+                                                            </button>
+                                                        </form>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <button onclick="confirmDeleteUser('@user.Id', '@user.UserName')" class="btn btn-danger btn-sm ms-2">
+                                                <i class="fas fa-trash"></i> Delete
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Category Modal -->
+<div class="modal fade" id="deleteCategoryModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete the category "<span id="categoryName"></span>"?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form id="deleteCategoryForm" asp-action="DeleteCategory" method="post">
+                    <input type="hidden" id="categoryId" name="id" />
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Product Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this product?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form id="deleteForm" asp-action="DeleteProduct" method="post">
+                    <input type="hidden" id="productId" name="id" />
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete User Modal -->
+<div class="modal fade" id="deleteUserModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete the user "<span id="userName"></span>"?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form id="deleteUserForm" asp-action="DeleteUser" method="post">
+                    <input type="hidden" id="userId" name="id" />
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize all dropdowns
+        document.addEventListener('DOMContentLoaded', function() {
+            var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+            var dropdownList = dropdownElementList.map(function(dropdownToggleEl) {
+                return new bootstrap.Dropdown(dropdownToggleEl);
+            });
+        });
+
+        function confirmDelete(id) {
+            document.getElementById('productId').value = id;
+            var modal = new bootstrap.Modal(document.getElementById('deleteModal'));
+            modal.show();
+        }
+
+        function confirmDeleteCategory(id, name) {
+            document.getElementById('categoryId').value = id;
+            document.getElementById('categoryName').textContent = name;
+            var modal = new bootstrap.Modal(document.getElementById('deleteCategoryModal'));
+            modal.show();
+        }
+
+        function confirmDeleteUser(id, name) {
+            document.getElementById('userId').value = id;
+            document.getElementById('userName').textContent = name;
+            var modal = new bootstrap.Modal(document.getElementById('deleteUserModal'));
+            modal.show();
+        }
+    </script>
+}
+
+<style>
+    .card {
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .card-header {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .table img {
+        border-radius: 4px;
+        border: 1px solid #ddd;
+    }
+
+    .btn-group .btn {
+        margin: 0 2px;
+    }
+
+    .btn-warning {
+        color: #fff;
+    }
+
+    .btn-warning:hover {
+        color: #fff;
+    }
+
+    .category-card {
+        transition: all 0.3s ease;
+    }
+
+    .category-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+</style> 

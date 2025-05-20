@@ -1,0 +1,191 @@
+﻿@model List<BusinessLayer.DTO.Cart.CartItem>
+
+@section Styles {
+    <style>
+        .cart-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .cart-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            width: 220px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .item-image img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: contain;
+            border-radius: 8px;
+            padding: 1rem;
+            background-color: #f8f9fa;
+        }
+        .item-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .item-price {
+            font-size: 16px;
+            color: #28a745;
+        }
+        .buy-button {
+            display: inline-block;
+            background-color: #ff5722;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+        .buy-button:hover {
+            background-color: #e64a19;
+        }
+        .empty-cart-message {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        .quantity-controls form {
+            display: inline;
+        }
+        .quantity-controls button {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            background: #f8f9fa;
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0 5px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .quantity-controls button:hover {
+            background: #ffd700;
+            color: #000;
+        }
+        .remove-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+        .remove-btn:hover {
+            background: #a71d2a;
+        }
+        .buy-all-container {
+            text-align: right;
+            margin-right: 20px;
+            margin-top: 30px;
+        }
+        .btn-dark {
+            background-color: #000;
+            border-color: #000;
+            transition: all 0.3s ease;
+        }
+        .btn-dark:hover {
+            background-color: #ffd700;
+            border-color: #ffd700;
+            color: #000;
+        }
+        .item-details-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+            margin-bottom: 10px;
+        }
+        .item-details-bottom .item-price {
+            margin: 0;
+        }
+        .item-details-bottom .quantity-controls {
+            margin: 0;
+        }
+    </style>
+}
+
+<br />
+<br />
+<br />
+<br />
+
+<h1 class="text-center">Your Cart</h1>
+
+@if (Model.Any())
+{
+    <div class="cart-items">
+        @foreach (var item in Model)
+        {
+            <div class="cart-item">
+                <form asp-action="RemoveFromCart" asp-controller="Cart" method="post" onsubmit="return confirm('Are you sure you want to remove this item from your cart?');">
+                    <input type="hidden" name="productId" value="@item.Product.Id" />
+                    <button type="submit" class="remove-btn" title="Remove">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </form>
+                <div class="item-image">
+                    <img src="/Images/Product/@item.Product.ImagePath" alt="@item.Product.Name" />
+                </div>
+                <div class="item-name">@item.Product.Name</div>
+                
+                <div class="item-details-bottom">
+                    <div class="item-price">@item.Product.Price.ToString("N0") EGP</div>
+                    <div class="quantity-controls">
+                        <form asp-action="DecreaseQuantity" asp-controller="Cart" method="post">
+                            <input type="hidden" name="productId" value="@item.Product.Id" />
+                            <button type="submit">-</button>
+                        </form>
+                        <span class="mx-2">@item.Quantity</span>
+                        <form asp-action="IncreaseQuantity" asp-controller="Cart" method="post">
+                            <input type="hidden" name="productId" value="@item.Product.Id" />
+                            <button type="submit">+</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="buy-all-container">
+        <a asp-action="Checkout" asp-controller="Payment" class="btn btn-dark btn-lg">
+            <i class="fas fa-shopping-bag"></i> Buy All Now
+        </a>
+    </div>
+}
+else
+{
+    <p class="empty-cart-message">Your cart is empty.</p>
+}
+<br />
+<br />
+<br />

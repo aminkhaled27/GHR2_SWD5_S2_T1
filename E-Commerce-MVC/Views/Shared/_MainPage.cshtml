@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- additional css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA==" crossorigin="anonymous" />
+
+    <!-- CSS Style -->
+    @* <link rel="stylesheet" href="resource/css/style.css"> *@
+    <link rel="stylesheet" href="~/css/styleForMainPage.css">
+
+
+    <title>Hot Gadget</title>
+
+    @RenderSection("Styles", required: false)
+
+</head>
+
+
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navigation-bar fixed-top">
+        <div class="container-fluid navbar-bg px-0">
+            <nav class="navbar navbar-bg navbar-expand-md navbar-light w-100 d-flex justify-content-between align-items-center">
+                <a class="navbar-brand d-flex align-items-center" style="margin-left:50px;" href="/">
+                    <img src="/Images/logo/logo.png" alt="Logo" style="height:40px; margin-right:10px;">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse navbar-item justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav" style="margin-right:0;">
+                        <li class="nav-item active">
+                            <a class="nav-link" asp-action="Index" asp-controller="Home">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Categories
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @{
+                                    var allCategories = ViewBag.AllCategories as List<BusinessLayer.DTO.Category.CategoryWithProductDTO>;
+                                    if (allCategories != null)
+                                    {
+                                        foreach (var category in allCategories.OrderBy(c => c.CategoryName))
+                                        {
+                                            <a class="dropdown-item" asp-controller="Product" asp-action="GetProductByCategoryName" asp-route-CategoryName="@category.CategoryName">
+                                                @category.CategoryName
+                                            </a>
+                                        }
+                                    }
+                                }
+                            </div>
+                        </li>
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="Register" asp-controller="Account">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="Login" asp-controller="Account">Login</a>
+                            </li>
+                        }
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="Logout" asp-controller="Account">Logout</a>
+                            </li>
+                        }
+                        <li class="nav-item">
+                            <a class="btn cart-btn position-relative d-flex align-items-center" asp-area="" asp-controller="Cart" asp-action="ShowCart">
+                                <i class="fas fa-shopping-cart cart-icon"></i>
+                                <span class="ms-2">Cart</span>
+                                <span class="cart-count badge rounded-pill position-absolute top-0 start-100 translate-middle" style="background: #ffd700; color: #000;">
+                                    @(ViewBag.CartCount != null ? ViewBag.CartCount : 0)
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ms-2">
+                            <a class="btn cart-btn d-flex align-items-center" asp-area="" asp-controller="Profile" asp-action="Index">
+                                <i class="fas fa-user cart-icon"></i>
+                                <span class="ms-2">Profile</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+   
+
+    @RenderBody()
+    
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show position-fixed" role="alert" style="bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1055;">
+            @TempData["Success"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+    @if (TempData["Danger"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show position-fixed" role="alert" style="bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1055;">
+            @TempData["Danger"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    <!-- Footer -->
+
+    <footer class="footer bg-dark text-white py-4">
+        <div class="container">
+            <div class="row footer-content d-flex justify-content-center flex-row">
+
+                <!-- About Us Section -->
+                <div class="col-md-3">
+                    <div class="about-us">
+                        <h5>About Us</h5>
+                        <p>Your one-stop shop for the latest gadgets, electronics, and accessories. We provide high-quality products at unbeatable prices.</p>
+                    </div>
+                </div>
+
+                <!-- Customer Service Links -->
+                <div class="col-md-3 col-4">
+                    <div class="quick-links">
+                        <h5>Customer Service</h5>
+                        <ul class="list-unstyled">
+                            <li><a class="link text-white" href="#">Contact Us</a></li>
+                            <li><a class="link text-white" href="#">Shipping & Returns</a></li>
+                            <li><a class="link text-white" href="#">FAQs</a></li>
+                            <li><a class="link text-white" href="#">Order Tracking</a></li>
+                            <li><a class="link text-white" href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Company Information Links -->
+                <div class="col-md-3 col-4">
+                    <div class="quick-links">
+                        <h5>Company</h5>
+                        <ul class="list-unstyled">
+                            <li><a class="link text-white" href="#">About Us</a></li>
+                            <li><a class="link text-white" href="#">Careers</a></li>
+                            <li><a class="link text-white" href="#">Affiliate Program</a></li>
+                            <li><a class="link text-white" href="#">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Follow Us Section -->
+                <div class="col-md-3 col-4">
+                    <div class="social-links">
+                        <h5>Follow Us</h5>
+                        <ul class="list-unstyled d-flex">
+                            <li><a class="link text-white me-3" href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                            <li><a class="link text-white me-3" href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                            <li><a class="link text-white" href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-center mt-4">
+                <p class="copyright mb-0">&copy; <span id="year"></span> Hot Gadgets. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+
+    <!-- Additional Java Script -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/js/fontawesome.min.js" integrity="sha512-fHv0GiFwHF/oEoQcl226aqC6YlueqBLMGy1A7De9EM+5QwQqQTOg4Mry7zaEF6HkfYzFk2Lek9MyKE5r0Q2U/A==" crossorigin="anonymous"></script>
+
+
+    <!-- Render the optional "Scripts" section -->
+    @RenderSection("Scripts", required: false)
+
+    <style>
+    .cart-btn {
+        border-radius: 50px;
+        background: #fff;
+        color: #000;
+        border: 2px solid #000;
+        padding: 8px 20px;
+        font-weight: 600;
+        transition: background 0.2s, color 0.2s, border 0.2s;
+        position: relative;
+    }
+    .cart-btn:hover, .cart-btn:focus {
+        background: #ffd700;
+        color: #000;
+        border-color: #ffd700;
+        text-decoration: none;
+    }
+    .cart-icon {
+        color: #000;
+        font-size: 1.2rem;
+        transition: color 0.2s;
+    }
+    .cart-btn:hover .cart-icon, .cart-btn:focus .cart-icon {
+        color: #000;
+    }
+    .cart-count {
+        font-size: 0.8rem;
+        min-width: 22px;
+        min-height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        right: 0;
+        transform: translate(50%, -50%);
+        z-index: 2;
+    }
+    </style>
+</body>
+</html>
